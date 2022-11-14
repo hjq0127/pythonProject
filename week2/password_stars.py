@@ -11,9 +11,6 @@ def version_1():
     print('*' * len(password))
 
 
-# version_1()
-
-
 def main():
     """Get and print password using functions."""
     password = get_password(MINIMUM_LENGTH)
