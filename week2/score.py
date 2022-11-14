@@ -3,6 +3,7 @@ def main():
     score = float(input("Enter score: "))
     print(determine_status(score))
 
+
 def determine_status(score):
     """Determine the status of a given score."""
     if score < 0 or score > 100:
@@ -13,4 +14,6 @@ def determine_status(score):
         return "Passable"
     else:
         return "Bad"
+
+
 main()
