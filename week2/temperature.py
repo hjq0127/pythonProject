@@ -25,8 +25,9 @@ def main():
     print("Thank you.")
 
 def Celsius(celsius):
-    return celsius * 9.0 / 5 + 32
+  return celsius * 9.0 / 5 + 32
+
 def Fahrenheit(fahrenheit):
-    return 5 / 9 * (fahrenheit - 32)
+  return 5 / 9 * (fahrenheit - 32)
 
 main()
