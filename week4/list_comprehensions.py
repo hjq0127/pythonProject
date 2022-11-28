@@ -51,6 +51,7 @@ print(big_numbers)
 # TODO: (more advanced) use a list comprehension and the join string method
 # to create a string (not list) of the last names for those full names longer than 11 characters
 # the result should be: 'Harlem, Hendrix, Lovelace'
-Name_more_than_11 = list(filter(lambda s: isinstance(s, str) and len(s) >= 11, full_names))
-print(Name_more_than_11)
+name = list(filter(lambda s: isinstance(s, str) and len(s) > 11, full_names))
+last_name = name.split(" ")[1]
+print(last_name)
 
