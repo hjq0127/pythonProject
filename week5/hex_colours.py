@@ -3,13 +3,18 @@ CP1404/CP5632
 constant dictionary of about 10 colour names
 """
 
-COLOUR_CODES = {"Bole": "#79443b", "Bone": "#e3dac9",
-                "Boysenberry": "#873260", "Brandeis Blue": "#0070ff",
-                "Brass": "#b5a642", "Brick Red": "#cb4154",
-                "Bright Cerulean": "#1dacd6", "Bright Green": "#66ff00",
-                "Bright Lavender": "#bf94e4", "Bright Lilac": "#d891ef",
-                "Bright Maroon": "#c32148", "Bright Navy Blue": "#1974d2", "Bright Turquoise": "#08e8de",
-                "Bright Ube": "#d19fe8", "Brilliant Rose": "#ff55a3"}
+COLOUR_CODES = {
+    "Aliceblue": "#f0f8ff",
+    "Beige": "#f5f5dc",
+    "Cadetblue": "#5f9ea0",
+    "Darkslategrey": "#2f4f4f",
+    "Hotpink": "#ff69b4",
+    "Lavender": "#e6e6fa",
+    "Lightcoral": "#f08080",
+    "Mediumaquamarine": "#66cdaa",
+    "Olivedrab": "#6b8e23",
+    "Tomato": "#ff6347"
+}
 
 colour_name = input("Enter a colour name: ").capitalize()
 while colour_name != "":
