@@ -1,4 +1,4 @@
-"""CP1404/CP5632 Practical - Guitars."""
+"""CP1404/CP5632 Practical -  Guitars."""
 
 
 class Guitar:
