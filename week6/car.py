@@ -1,4 +1,4 @@
-"""CP1404/CP5632 Practical - Car class example."""
+"""CP1404/CP5632 Practical - car class example."""
 
 
 class Car:
@@ -32,3 +32,4 @@ class Car:
             self.fuel -= distance
         self._odometer += distance
         return distance
+
