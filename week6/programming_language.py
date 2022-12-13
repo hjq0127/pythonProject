@@ -1,4 +1,4 @@
-"""CP1404/CP5632 Practical - programming_language ."""
+"""CP1404/CP5632 Practical - Programming_language ."""
 
 
 class ProgrammingLanguage:
