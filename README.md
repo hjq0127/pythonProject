@@ -10,6 +10,6 @@ Practical 06 - Classes\
 Practical 07 - Classes 2\
 Practical 08 - Kivy\
 Practical 09 - Inheritance\
-Practical 10 - Databases, APIs, Flask\
+Practical 10 - Databases, APIs, Flask
 ## Feedback
 Its also include the commenting form some one else and you can see the commotion in the other Branches
