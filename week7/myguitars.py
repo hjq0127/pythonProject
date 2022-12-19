@@ -1,6 +1,6 @@
 """
 CP1404/CP5632 Practical
-Guitars class with tests.
+Guitars class
 """
 
 
