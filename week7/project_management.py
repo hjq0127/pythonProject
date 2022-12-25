@@ -5,122 +5,127 @@ Project Management Program
 import csv
 
 # Create a Project class to store the project data
-class Project:
-    def __init__(self, name, start_date, end_date, completion, priority):
-        self.name = name
-        self.start_date = start_date
-        self.end_date = end_date
-        self.completion = completion
-        self.priority = priority
+import datetime
 
+import csv
 
-# Function to load projects from the data file
-def load_projects(filename):
+# Main Function
+def main():
     projects = []
-    with open(filename, 'r') as csvfile:
-        reader = csv.reader(csvfile)
-        for row in reader:
-            if row:
-                project = Project(*row)
-                projects.append(project)
-    return projects
+    while True:
+        print("Project Management System")
+        print("L. Load Project")
+        print("S. Save Project")
+        print("D. Display projects")
+        print("F. Filter by Date")
+        print("A. Add New Item")
+        print("U. Update Project")
+        print("Q. Exit")
+        try:
+            choice = input("Enter your choice: ").upper()
+            if choice == "L":
+                projects = load_project()
+            elif choice == "s":
+                save_project(projects)
+            elif choice == "D":
+                display_projects(projects)
+            elif choice == "F":
+                projects = filter_by_date(projects)
+            elif choice == "A":
+                projects = add_new_item(projects)
+            elif choice == "U":
+                projects = update_project(projects)
+            elif choice == "Q":
+                break
+        except:
+            print("Invalid choice. Try again.")
 
+# Load Project
+def load_project():
+    filename = input("Enter the filename to load: ")
+    try:
+        with open(filename) as f:
+            lines = f.readlines()
+            projects = []
+            for line in lines[1:]:
+                data = line.strip().split("\t")
+                projects.append(projects(*data))
+            return projects
+    except:
+        print("Error loading file.")
+        return []
 
-# Function to save projects to the data file
-def save_projects(filename, projects):
-    with open(filename, 'w') as csvfile:
-        writer = csv.writer(csvfile)
-        for project in projects:
-            writer.writerow([project.name, project.start_date, project.end_date, project.completion, project.priority])
+# Save Project
+def save_project(projects):
+    filename = input("Enter the filename to save: ")
+    try:
+        with open(filename, "w") as f:
+            f.write("Name\tStart Date\tPercent Complete\tPriority\n")
+            for project in projects:
+                f.write("{}\t{}\t{}\t{}\n".format(project.name, project.start_date, project.percent_complete, project.priority))
+    except:
+        print("Error saving file.")
 
-
-# Function to display projects
+# Showcase Projects
 def display_projects(projects):
-    print("Incomplete projects:")
-    print("Name\tStart Date\tEnd Date\tCompletion\tPriority")
-    incomplete_projects = [project for project in projects if project.completion != 100]
-    incomplete_projects.sort(key=lambda x: x.priority, reverse=True)
-    for project in incomplete_projects:
-        print(f"{project.name}\t{project.start_date}\t{project.end_date}\t{project.completion}\t{project.priority}")
-
-    print("\nCompleted projects:")
-    print("Name\tStart Date\tEnd Date\tCompletion\tPriority")
-    complete_projects = [project for project in projects if project.completion == 100]
-    complete_projects.sort(key=lambda x: x.priority, reverse=True)
-    for project in complete_projects:
-        print(f"{project.name}\t{project.start_date}\t{project.end_date}\t{project.completion}\t{project.priority}")
-
-
-# Function to filter projects by date
-def filter_projects_by_date(projects, date):
-    filtered_projects = [project for project in projects if project.start_date > date]
-    filtered_projects.sort(key=lambda x: x.start_date)
-    for project in filtered_projects:
-        print(f"{project.name}\t{project.start_date}\t{project.end_date}\t{project.completion}\t{project.priority}")
-
-
-# Function to add a new project
-def add_project(projects):
-    name = input("Name: ")
-    start_date = input("Start date: ")
-    end_date = input("End date: ")
-    completion = input("Completion percentage: ")
-    priority = input("Priority: ")
-    project = Project(name, start_date, end_date, completion, priority)
-    projects.append(project)
-
-
-# Function to update a project
-def update_project(projects):
-    name = input("Name of the project to update: ")
+    unfinished = []
+    completed = []
     for project in projects:
-        if project.name == name:
-            completion = input("New completion percentage (leave blank to retain existing value): ")
-            if completion:
-                project.completion = completion
-            priority = input("New priority (leave blank to retain existing value): ")
-            if priority:
-                project.priority = priority
+        if project.percent_complete < 100:
+            unfinished.append(project)
+        else:
+            completed.append(project)
+    print("Unfinished Projects:")
+    for project in sorted(unfinished, key=lambda x: x.priority):
+        print("{} - {}".format(project.name, project.priority))
+    print("Completed Projects:")
+    for project in sorted(completed, key=lambda x: x.priority):
+        print("{} - {}".format(project.name, project.priority))
 
+# Filter by Date
+def filter_by_date(projects):
+    date = input("Enter date (MM/DD/YYYY): ")
+    try:
+        dt = datetime.datetime.strptime(date, "%m/%d/%Y")
+        filtered_projects = [p for p in projects if p.start_date > dt]
+        for project in sorted(filtered_projects, key=lambda x: x.start_date):
+            print("{} - {}".format(project.name, project.start_date))
+        return filtered_projects
+    except:
+        print("Invalid date.")
+        return projects
 
-# Main program
-filename = input("Enter the filename to load/save projects: ")
-projects = load_projects(filename)
+# Add New Item
+def add_new_item(projects):
+    name = input("Enter project name: ")
+    start_date = input("Enter start date (MM/DD/YYYY): ")
+    percent_complete = input("Enter percent complete: ")
+    priority = input("Enter priority: ")
+    try:
+        dt = datetime.datetime.strptime(start_date, "%m/%d/%Y")
+        projects.append(projects(name, dt, percent_complete, priority))
+        return projects
+    except:
+        print("Invalid date.")
+        return projects
 
-# Display menu
-while True:
-    print("\nMenu:")
-    print("1. Load projects")
-    print("2. Save projects")
-    print("3. Display projects")
-    print("4. Filter projects by date")
-    print("5. Add new project")
-    print("6. Update project")
-    print("7. Quit")
-    selection = input("Enter your selection: ")
+# Update Project
+def update_project(projects):
+    for i, project in enumerate(projects):
+        print("{}. {}".format(i+1, project.name))
+    try:
+        choice = int(input("Enter the number of the project you want to update: "))
+        project = projects[choice-1]
+        percent_complete = input("Enter new percent complete (leave blank to retain existing): ")
+        priority = input("Enter new priority (leave blank to retain existing): ")
+        if percent_complete:
+            project.percent_complete = percent_complete
+        if priority:
+            project.priority = priority
+        return projects
+    except:
+        print("Invalid choice.")
+        return projects
 
-    # Load projects
-    if selection == "1":
-        projects = load_projects(filename)
-    # Save projects
-    elif selection == "2":
-        save_projects(filename, projects)
-    # Display projects
-    elif selection == "3":
-        display_projects(projects)
-    # Filter projects by date
-    elif selection == "4":
-        date = input("Enter date (YYYY-MM-DD): ")
-        filter_projects_by_date(projects, date)
-    # Add new project
-    elif selection == "5":
-        add_project(projects)
-    # Update project
-    elif selection == "6":
-        update_project(projects)
-    # Quit
-    elif selection == "7":
-        save_projects(filename, projects)
-        break
-    else:
-        print("Invalid selection. Please try again.")
+if __name__ == "__main__":
+    main()
