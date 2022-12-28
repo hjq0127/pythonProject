@@ -25,3 +25,4 @@ with open("guitars.csv") as file:
 # Display the data
 for guitar in guitar_list:
     print("Guitar Name: {}, Year: {}, Cost: ${}".format(guitar.name, guitar.year, guitar.cost))
+

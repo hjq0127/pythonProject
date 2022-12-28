@@ -127,5 +127,6 @@ def update_project(projects):
         print("Invalid choice.")
         return projects
 
+
 if __name__ == "__main__":
     main()
