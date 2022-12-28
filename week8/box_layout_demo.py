@@ -11,7 +11,7 @@ class BoxLayoutDemo(App):
     def handle_greet(self):
         print("test")
         self.root.ids.output_label.text = f"Hello {self.root.ids.input_name.text}"
-        print('greet')
+        print('greet ')
 
     def resets(self):
         self.root.ids.output_label.text = ""
