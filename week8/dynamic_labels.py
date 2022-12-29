@@ -1,6 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.button import Button
+from kivy.uix.button import Label
 from kivy.properties import StringProperty
 
 NEW_COLOUR = (0, 0, 0.34, 1)  # RGBA for red
@@ -15,7 +15,7 @@ class DynamicWidgetsApp(App):
         """Construct main app."""
         super().__init__(**kwargs)
         # basic data (model) example - dictionary of names: phone numbers
-        self.name_to_phone = {"Bob Brown": "0414144411", "Cat Cyan": "0441411211", "Oren Ochre": "0432123456"}
+        self.name = {"Jim", "Ferris", "Bobby", "Tan", "Hu", "Harris"}
 
     def build(self):
         """Build the Kivy GUI."""
@@ -26,31 +26,10 @@ class DynamicWidgetsApp(App):
 
     def create_widgets(self):
         """Create buttons from data and add them to the GUI."""
-        for name in self.name_to_phone:
+        for name in self.name:
             # create a button for each data entry, specifying the text
-            temp_button = Button(text=name)
-            temp_button.bind(on_press=self.press_entry)
-            # set the button's background colour
-            temp_button.background_color = NEW_COLOUR
-            # add the button to the "entries_box" layout widget
+            temp_button = Label(text=name)
             self.root.ids.entries_box.add_widget(temp_button)
-
-    def press_entry(self, instance):
-        """Handle pressing entry buttons."""
-        # get name (dictionary key) from the text of Button we clicked on
-        name = instance.text
-        # change the button's background colour
-        instance.background_color = ALTERNATIVE_COLOUR
-        # update status text
-        self.status_text = f"{name}'s number is {self.name_to_phone[name]}"
-
-    def clear_all(self):
-        """Clear all widgets that are children of the "entries_box" layout widget."""
-        self.root.ids.entries_box.clear_widgets()
-
-    def add_widget(self, temp_button):
-        self.root.ids.entries_box.add_widget(temp_button)
-        temp_button.bind(on_release=self.press_entry)
 
 
 DynamicWidgetsApp().run()
