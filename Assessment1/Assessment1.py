@@ -8,7 +8,7 @@ import csv
 
 csvfile = open('book.csv', 'r')
 data = list(csv.reader(csvfile))
-
+i = 0
 print("Reading Tracker 1.0 - by Hong jiaqin")
 
 total = 0
@@ -47,7 +47,7 @@ while True:
         print("You need to read ", total, " pages in ", i + 1, "books")
 
 
-    # add book
+# add book
     elif option == 'A':
         title = input("\nEnter book title: ")
         author = input("Enter book author: ")
@@ -74,9 +74,10 @@ while True:
         else:
             # sort books by author and then title
             for i, book in enumerate(books):
-                print("*""{}. {} by {} ({} pages; {})".format(i + 1, book[0], book[1], book[2], book[3]))
-            print("You need to read ", total, " pages in ", i + 1, "books")
-
+                if book[3] == "r":
+                    print("*""{}. {} by {} ({} pages; {})".format(i + 1, book[0], book[1], book[2], book[3]))
+                else:
+                    print("{}. {} by {} ({} pages; {})".format(i + 1, book[0], book[1], book[2], book[3]))
             book_num = input("\nSelect a book: ")
             # error checking
             if book_num.isdigit() and 0 < int(book_num) <= len(books):
