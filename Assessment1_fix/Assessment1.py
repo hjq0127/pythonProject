@@ -49,7 +49,7 @@ while choice != 'Q':
         # loop through list
         for book in books:
             # if book is required
-            if book[3] == 'r':
+            if book[3] == 'c':
                 # print required books with an asterisk
                 print('*' + str(count) + '. ' + book[0] + ' by ' + book[1] + '\t\t' + book[2] + ' pages')
                 # add to page count

@@ -14,7 +14,7 @@ for row in csv_reader:
     books.append(row)
 
 # print welcome message
-print('Welcome to the Book Tracker, created by Your Name')
+print('Welcome to the Book Tracker, created by Hong Jiaqin')
 
 # print menu
 print('Menu:')
@@ -24,7 +24,7 @@ print('M - Mark a book as completed')
 print('Q - Quit')
 
 # get user input
-choice = input('>>> ').upper()
+choice = input('>>>').upper()
 
 # loop until user chooses to quit
 while choice != 'Q':
@@ -121,10 +121,18 @@ while choice != 'Q':
                     break
                 except ValueError:
                     print('Invalid input; enter a valid number.')
+            # print book marked as completed
+            if choice and 0 < int(choice) <= len(books):
+                if books[choice - 1][3] == "r":
+                    print(books[choice - 1][0] + ' by ' + books[choice - 1][1] + ' completed!')
+                elif books[choice - 1][3] == "c":
+                    print("\nThat book is already completed")
+            else:
+                print("\nInvalid selection.")
             # mark book as completed
             books[choice - 1][3] = 'c'
-            # print book marked as completed
-            print(books[choice - 1][0] + ' by ' + books[choice - 1][1] + ' completed!')
+# print(books[choice - 1][0] + ' by ' + books[choice - 1][1] + ' completed!')
+
         # if there are no required books
         else:
             # print no required books message
