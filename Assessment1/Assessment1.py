@@ -40,14 +40,14 @@ while True:
         else:
             # sort books by author and then title
             for i, book in enumerate(books):
-                if book[3] == "r":
+                if book[3] == "c":
                     print("*""{}. {} by {} ({} pages; {})".format(i + 1, book[0], book[1], book[2], book[3]))
                 else:
                     print("{}. {} by {} ({} pages; {})".format(i + 1, book[0], book[1], book[2], book[3]))
         print("You need to read ", total, " pages in ", i + 1, "books")
 
 
-# add book
+    # add book
     elif option == 'A':
         title = input("\nEnter book title: ")
         author = input("Enter book author: ")
@@ -74,7 +74,7 @@ while True:
         else:
             # sort books by author and then title
             for i, book in enumerate(books):
-                if book[3] == "r":
+                if book[3] == "c":
                     print("*""{}. {} by {} ({} pages; {})".format(i + 1, book[0], book[1], book[2], book[3]))
                 else:
                     print("{}. {} by {} ({} pages; {})".format(i + 1, book[0], book[1], book[2], book[3]))
@@ -82,8 +82,8 @@ while True:
             # error checking
             if book_num.isdigit() and 0 < int(book_num) <= len(books):
                 if books[int(book_num) - 1][3] == "r":
+                    books[int(book_num) - 1][3] == "c"
                     print(book[1], "completed!")
-
                 else:
                     print("\nThat book is already completed")
             else:
@@ -100,3 +100,6 @@ while True:
         break
     else:
         print("\nInvalid menu choice")
+
+
+
