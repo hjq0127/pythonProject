@@ -138,8 +138,6 @@ while choice != 'Q':
                 print("\nInvalid selection.")
             # mark book as completed
             books[choice - 1][3] = 'c'
-# print(books[choice - 1][0] + ' by ' + books[choice - 1][1] + ' completed!')
-
         # if there are no required books
         else:
             # print no required books message
