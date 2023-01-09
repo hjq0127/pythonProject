@@ -3,7 +3,7 @@ CP1404/CP5632 Practical
 Taxi class, derived from Car
 """
 
-from week9.car import Car
+from car import Car
 
 
 class Taxi(Car):

@@ -3,7 +3,7 @@ CP1404/CP5632 Practical
 Test taxi
 """
 
-from week9.car import Car
+from taxi import Taxi
 
 
 def main():
