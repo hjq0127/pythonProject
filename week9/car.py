@@ -10,10 +10,10 @@ class Car:
         """
         self.name = name
         self.fuel = fuel
-        self._odometer = 0
+        self.odometer = 0
 
     def __str__(self):
-        return f"{self.name}, fuel={self.fuel}, odometer={self._odometer}"
+        return f"{self.name}, fuel={self.fuel}, odometer={self.odometer}"
 
     def add_fuel(self, amount):
         """Add amount to the car's fuel."""
@@ -30,5 +30,5 @@ class Car:
             self.fuel = 0
         else:
             self.fuel -= distance
-        self._odometer += distance
+        self.odometer += distance
         return distance

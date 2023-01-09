@@ -8,7 +8,6 @@ from car import Car
 
 
 class UnreliableCar(Car):
-    """An unreliable version of a car."""
 
     def __init__(self, name, fuel, reliability):
         super().__init__(name, fuel)
