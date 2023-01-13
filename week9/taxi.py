@@ -1,6 +1,6 @@
 """
 CP1404/CP5632 Practical
-Taxi class, derived from Car
+Taxi class, derived  from Car
 """
 
 from car import Car

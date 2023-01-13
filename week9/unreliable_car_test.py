@@ -10,7 +10,7 @@ from unreliable_car import UnreliableCar
 
 def main():
 
-    good_car = UnreliableCar("Mostly Good", 100, 90)
+    good_car = UnreliableCar(" Mostly Good", 100, 90)
     bad_car = UnreliableCar("Dodgy", 100, 9)
 
     for i in range(1, 12):

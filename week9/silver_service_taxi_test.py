@@ -10,7 +10,7 @@ def main():
     taxi = SilverServiceTaxi("Hummer", 200, 4)
     taxi.drive(0)
     print(taxi)
-    print(taxi.get_fare(), "$")
+    print(taxi.get_fare(), " $")
 
 
 main()

@@ -55,7 +55,7 @@ def display_taxis(taxis):
 
 
 def run_tests():
-    """Run tests to show workings of Car and Taxi classes."""
+    """Run tests to  show workings of Car and Taxi classes."""
     bus = Car("Datsun", 180)
     bus.drive(30)
     print("fuel =", bus.fuel)

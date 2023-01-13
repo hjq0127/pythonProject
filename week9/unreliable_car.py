@@ -1,6 +1,6 @@
 """
 CP1404/CP5632 Practical
-UnreliableCar class, derived from Car
+UnreliableCar  class, derived from Car
 """
 
 from random import randint
