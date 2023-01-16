@@ -79,11 +79,11 @@ def run_tests():
 run_tests()
 
 # TODO: 3. Uncomment the following line and run the doctests
-# (PyCharm may see your >>> doctest comments and run doctests anyway.)
+# ( PyCharm may see your >>> doctest comments and run doctests anyway.)
 doctest.testmod()
 
 # TODO: 4. Fix the failing is_long_word function
-# (don't change the tests, change the function!)
+# ( don't change the tests, change the function!)
 
 # TODO: 5. Write and test a function to format a phrase as a sentence,
 # starting with a capital and ending with a single full stop.

@@ -4,7 +4,7 @@ CP1404 - Practicals
 
 import wikipedia
 
-user_search = input("Search: ")
+user_search = input(" Search: ")
 while user_search != "":
     wiki_page = wikipedia.page(user_search)
     try:
